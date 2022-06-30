@@ -13,3 +13,27 @@ spring:
       connection-timeout: 10000
       jackson:
         property-naming-strategy: SNAKE_CASE
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    path: /swagger
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: health, info, metrics
+        exclude: "env,beans"
+    info:
+      enabled: true
+
+server:
+  error:
+    include-message: always
+  servlet:
+    context-path: /api/book-market
+  tomcat:
+    threads:
+      max: 160
