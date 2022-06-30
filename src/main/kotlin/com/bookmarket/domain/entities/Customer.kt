@@ -1,5 +1,10 @@
-package com.bookmarket.infrastructure.dtos
+package com.bookmarket.domain.entities
 
-data class Customer {
-    
-}
+import java.util.UUID
+
+data class Customer(
+    val id: UUID,
+    val name: String,
+    val email: String,
+    val status: String
+)
