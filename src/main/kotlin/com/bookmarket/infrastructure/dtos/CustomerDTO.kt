@@ -1,5 +1,7 @@
 package com.bookmarket.infrastructure.dtos
 
+import com.bookmarket.domain.entities.Customer
+import com.bookmarket.domain.enums.CustomerStatus
 import org.hibernate.annotations.GenericGenerator
 import java.util.UUID
 import javax.persistence.Column
@@ -25,5 +27,31 @@ data class CustomerDTO(
     val email: String? = null,
 
     @Column
-    val status: String? = null
+    val status: CustomerStatus
 )
+
+fun Customer.toDTO(
+    id: UUID,
+    name: String,
+    email: String,
+    status: CustomerStatus
+): CustomerDTO =
+    CustomerDTO(
+        id = id,
+        name = name,
+        email = email,
+        status = status
+    )
+
+fun CustomerDTO.toDomain(
+    id: UUID,
+    name: String,
+    email: String,
+    status: CustomerStatus
+): Customer =
+    Customer(
+        id = id,
+        name = name,
+        email = email,
+        status = status
+    )

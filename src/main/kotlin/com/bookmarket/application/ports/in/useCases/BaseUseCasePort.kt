@@ -1,4 +1,5 @@
 package com.bookmarket.application.ports.`in`.useCases
 
-interface BaseUseCasePort {
+interface BaseUseCasePort<TRequest, TResponse> {
+    fun createCustomer(request: TRequest): TResponse
 }
