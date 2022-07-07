@@ -37,3 +37,8 @@ server:
   tomcat:
     threads:
       max: 160
+
+local:
+  server:
+    url: "http://localhost:8080/api/book-market"
+    description: "Local"
