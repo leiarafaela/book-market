@@ -1,11 +1,11 @@
 package com.bookmarket.domain.entities
 
 import com.bookmarket.domain.enums.CustomerStatus
-import java.util.UUID
+import java.time.LocalDateTime
 
-data class Customer(
-    val id: UUID?,
-    val name: String?,
-    val email: String?,
-    val status: CustomerStatus
+class Customer(
+    val name: String,
+    val email: String,
+    val status: CustomerStatus,
+    val createdAt: LocalDateTime
 )

@@ -3,6 +3,8 @@ package com.bookmarket.infrastructure.dtos
 import com.bookmarket.domain.entities.Customer
 import com.bookmarket.domain.enums.CustomerStatus
 import org.hibernate.annotations.GenericGenerator
+import org.springframework.data.annotation.CreatedDate
+import java.time.LocalDateTime
 import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -21,19 +23,23 @@ data class CustomerDTO(
     val id: UUID? = null,
 
     @Column
-    val name: String? = null,
+    val name: String,
 
     @Column
-    val email: String? = null,
+    val email: String,
 
     @Column
-    val status: CustomerStatus
+    val status: CustomerStatus,
+
+    @CreatedDate
+    @Column
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 )
 
 fun CustomerDTO.toDomain(): Customer =
     Customer(
-        id = this.id,
         name = this.name,
         email = this.email,
-        status = this.status
+        status = this.status,
+        createdAt = this.createdAt
     )
