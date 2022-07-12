@@ -1,6 +1,6 @@
 package com.bookmarket.application.ports.`in`.useCases
 
 import com.bookmarket.adapters.`in`.web.controllers.request.PostCustomerRequest
-import com.bookmarket.infrastructure.dtos.CustomerDTO
+import com.bookmarket.domain.entities.Customer
 
-interface RegisterCustomerUseCasePort : BaseUseCasePort<PostCustomerRequest, CustomerDTO>
+interface RegisterCustomerUseCasePort : BaseUseCasePort<PostCustomerRequest, Customer>

@@ -30,28 +30,10 @@ data class CustomerDTO(
     val status: CustomerStatus
 )
 
-fun Customer.toDTO(
-    id: UUID,
-    name: String,
-    email: String,
-    status: CustomerStatus
-): CustomerDTO =
-    CustomerDTO(
-        id = id,
-        name = name,
-        email = email,
-        status = status
-    )
-
-fun CustomerDTO.toDomain(
-    id: UUID,
-    name: String,
-    email: String,
-    status: CustomerStatus
-): Customer =
+fun CustomerDTO.toDomain(): Customer =
     Customer(
-        id = id,
-        name = name,
-        email = email,
-        status = status
+        id = this.id,
+        name = this.name,
+        email = this.email,
+        status = this.status
     )
