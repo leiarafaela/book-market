@@ -11,9 +11,11 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
+import java.util.UUID
 
 @RestController
 class CustomerController(
@@ -36,4 +38,8 @@ class CustomerController(
     @Tag(name = "Get all customers")
     fun getAllCustomer(): ResponseEntity<List<Customer>> =
         getCustumer.getAll().let { ResponseEntity.ok(it.toList()) }
+
+    @GetMapping("/customers/{email}")
+    fun getCustomer(@PathVariable email: String): ResponseEntity<Customer> =
+        getCustumer.get(email).let { ResponseEntity.ok(it) }
 }

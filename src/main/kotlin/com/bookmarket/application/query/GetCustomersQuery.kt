@@ -6,6 +6,7 @@ import com.bookmarket.infrastructure.dtos.toDomain
 import com.bookmarket.infrastructure.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.UUID
 
 @Service
 class GetCustomersQuery(
@@ -17,5 +18,10 @@ class GetCustomersQuery(
                 throw Exception("Nada")
             return it.map { dto -> dto.toDomain() }
         }
+    }
+
+    override fun get(email: String): Customer {
+         return customerRepository.findByEmail(email)?.toDomain() ?: throw Exception("H")
+
     }
 }
