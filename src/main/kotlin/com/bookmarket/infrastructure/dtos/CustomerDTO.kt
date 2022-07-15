@@ -4,7 +4,7 @@ import com.bookmarket.domain.entities.Customer
 import com.bookmarket.domain.enums.CustomerStatus
 import org.hibernate.annotations.GenericGenerator
 import org.springframework.data.annotation.CreatedDate
-import java.time.LocalDateTime
+import java.time.LocalDate
 import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -33,7 +33,7 @@ data class CustomerDTO(
 
     @CreatedDate
     @Column
-    val createdAt: LocalDateTime = LocalDateTime.now(),
+    val createdAt: LocalDate? = LocalDate.now(),
 )
 
 fun CustomerDTO.toDomain(): Customer =

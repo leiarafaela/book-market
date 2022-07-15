@@ -6,4 +6,5 @@ import java.util.UUID
 
 interface CustomerRepository : CrudRepository<CustomerDTO, UUID> {
     fun findByEmail(email: String?): CustomerDTO?
+    override fun findAll(): List<CustomerDTO>
 }
